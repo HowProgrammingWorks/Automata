@@ -8,11 +8,12 @@ const STATE_FIN = 2;
 const STATE_EXIT = 3;
 
 let state = STATE_INIT;
-let timer;
 
 process.on('SIGINT', () => state = STATE_FIN);
 
-const step = () => {
+const timer = setInterval(step, TIME_STEP);
+
+function step() {
   switch (state) {
   case STATE_INIT:
     console.log('initialization');
@@ -29,6 +30,4 @@ const step = () => {
     console.log('exit');
     clearInterval(timer);
   }
-};
-
-timer = setInterval(step, TIME_STEP);
+}
