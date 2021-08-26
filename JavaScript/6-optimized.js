@@ -29,7 +29,7 @@ class LiteralParser {
 
 const parser = new LiteralParser({
   start: {
-    '[': (target) => ({
+    '[': () => ({
       result: [],
       value: '',
       state: 'value',
@@ -41,7 +41,7 @@ const parser = new LiteralParser({
       ...target,
       value: target.value + char,
     }),
-    ',]': (target, char) => ({
+    ',]': (target) => ({
       result: target.result.concat([parseFloat(target.value)]),
       value: '',
       state: 'value',
