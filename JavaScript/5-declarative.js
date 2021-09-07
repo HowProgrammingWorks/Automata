@@ -1,6 +1,6 @@
 'use strict';
 
-class LiteralParser {
+class ArrayLiteralParser {
   constructor(meta) {
     this.state = 'start';
     this.meta = meta;
@@ -26,7 +26,7 @@ class LiteralParser {
 
 // Usage
 
-const parser = new LiteralParser({
+const parser = new ArrayLiteralParser({
   start: {
     '[': (target) => {
       target.result = [];
