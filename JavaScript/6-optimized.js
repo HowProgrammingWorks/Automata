@@ -41,10 +41,10 @@ const parser = new LiteralParser({
       ...target,
       value: target.value + char,
     }),
-    ',]': (target) => ({
+    ',]': (target, char) => ({
       result: target.result.concat([parseFloat(target.value)]),
       value: '',
-      state: 'value',
+      state: char === ',' ? 'value' : 'end',
     }),
     '': 'Unexpected character in value',
   },
