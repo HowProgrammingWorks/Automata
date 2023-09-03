@@ -20,7 +20,7 @@ class StateMachine {
           return buffer;
         }
         this.buffer += char;
-        return;
+        return NaN;
       }
     }
     throw Error(`Unexpected char "${char}" at state ${state}`);
