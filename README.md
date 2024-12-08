@@ -1,2 +1,1 @@
-# Automata
-Automata-based programming
+# Automata-based programming
