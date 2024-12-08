@@ -36,7 +36,9 @@ const parser = new ArrayLiteralParser({
     '': 'Unexpected character before array',
   },
   value: {
-    ' .-0123456789': (target, char) => target.value += char,
+    ' .-0123456789': (target, char) => {
+      target.value += char;
+    },
     ',]': (target, char) => {
       const value = parseFloat(target.value);
       target.result.push(value);

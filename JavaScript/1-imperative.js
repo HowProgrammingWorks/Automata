@@ -13,21 +13,21 @@ let state = STATE_INIT;
   for await (const chunk of process.stdin) {
     console.log({ chunk });
     switch (state) {
-    case STATE_INIT:
-      console.log('initialization');
-      state = STATE_WORK;
-      break;
-    case STATE_WORK:
-      console.log('working');
-      state = STATE_FIN;
-      break;
-    case STATE_FIN:
-      console.log('finalization');
-      state = STATE_EXIT;
-      break;
-    case STATE_EXIT:
-      console.log('exit');
-      process.exit(0);
+      case STATE_INIT:
+        console.log('initialization');
+        state = STATE_WORK;
+        break;
+      case STATE_WORK:
+        console.log('working');
+        state = STATE_FIN;
+        break;
+      case STATE_FIN:
+        console.log('finalization');
+        state = STATE_EXIT;
+        break;
+      case STATE_EXIT:
+        console.log('exit');
+        process.exit(0);
     }
   }
 })();

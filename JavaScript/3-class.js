@@ -7,20 +7,20 @@ class StateMachine {
     this.state = StateMachine.STATE.INIT;
     this.timer = setInterval(() => {
       switch (this.state) {
-      case StateMachine.STATE.INIT:
-        console.log('initialization');
-        this.state = StateMachine.STATE.WORK;
-        break;
-      case StateMachine.STATE.WORK:
-        process.stdout.write('.');
-        break;
-      case StateMachine.STATE.FIN:
-        console.log('\nfinalization');
-        this.state = StateMachine.STATE.EXIT;
-        break;
-      case StateMachine.STATE.EXIT:
-        console.log('exit');
-        clearInterval(this.timer);
+        case StateMachine.STATE.INIT:
+          console.log('initialization');
+          this.state = StateMachine.STATE.WORK;
+          break;
+        case StateMachine.STATE.WORK:
+          process.stdout.write('.');
+          break;
+        case StateMachine.STATE.FIN:
+          console.log('\nfinalization');
+          this.state = StateMachine.STATE.EXIT;
+          break;
+        case StateMachine.STATE.EXIT:
+          console.log('exit');
+          clearInterval(this.timer);
       }
     }, TIME_STEP);
   }
