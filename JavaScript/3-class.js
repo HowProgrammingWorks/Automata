@@ -3,6 +3,13 @@
 const TIME_STEP = 500;
 
 class StateMachine {
+  static STATE = {
+    INIT: 0,
+    WORK: 1,
+    FIN: 2,
+    EXIT: 3,
+  };
+
   constructor() {
     this.state = StateMachine.STATE.INIT;
     this.timer = setInterval(() => {
@@ -26,14 +33,8 @@ class StateMachine {
   }
 }
 
-StateMachine.STATE = {
-  INIT: 0,
-  WORK: 1,
-  FIN: 2,
-  EXIT: 3,
-};
-
 const sm = new StateMachine();
+
 process.on('SIGINT', () => {
   sm.state = StateMachine.STATE.FIN;
 });

@@ -9,7 +9,7 @@ const STATE_EXIT = 3;
 
 let state = STATE_INIT;
 
-(async () => {
+const main = async () => {
   for await (const chunk of process.stdin) {
     console.log({ chunk });
     switch (state) {
@@ -30,4 +30,6 @@ let state = STATE_INIT;
         process.exit(0);
     }
   }
-})();
+};
+
+main();
